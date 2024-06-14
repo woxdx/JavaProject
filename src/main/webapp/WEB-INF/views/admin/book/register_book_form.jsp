@@ -77,7 +77,7 @@
             form.callNumber.focus();
 
         } else if (form.rentalAble.value == '') {
-            alert('SELECT BOOK RANTAL ABLE.');
+            alert('SELECT BOOK RENTAL ABLE.');
             form.rentalAble.focus();
 
         } else if (form.file.value == '') {

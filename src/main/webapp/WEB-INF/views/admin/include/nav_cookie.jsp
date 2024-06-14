@@ -5,7 +5,7 @@
 
 <link href="<c:url value='/resources/css/admin/include/nav.css' />" rel="stylesheet" type="text/css">
 
-<jsp:include page="./nav_js.jsp" />
+<jsp:include page="./nav_js.jsp"/>
 
 <nav>
 
@@ -22,7 +22,9 @@
             <c:otherwise>
                 <div class="menu">
                     <ul>
-                        <li><a href="<c:url value='/admin/member/logoutConfirm' />">로그아웃(${cookie.loginMember.value}) </a></li>
+                        <li>
+                            <a href="<c:url value='/admin/member/logoutConfirm' />">로그아웃(${cookie.loginMember.value}) </a>
+                        </li>
                         <li><a href="<c:url value='/admin/member/modifyAccountForm' />">계정수정</a></li>
 
                         <c:if test="${cookie.loginMember.value eq 'system'}">
@@ -41,8 +43,8 @@
 
         <div class="search">
 
-            <form action="<c:url value='/book/admin/searchBookConfirm' />" name="search_book_form" method="get">
-                <input type="text" name="b_name" placeholder="Enter the name of the book you are looking for.">
+            <form action="<c:url value='/book/admin/searchBookConfirm' />" name="search_book" method="get">
+                <input type="text" name="name" placeholder="Enter the name of the book you are looking for.">
                 <input type="button" value="search" onclick="searchBookForm();">
             </form>
 

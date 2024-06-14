@@ -14,14 +14,15 @@ public class UploadFileService {
 
         // 파일저장
         String fileOriName = file.getOriginalFilename();
-        String fileExtension = fileOriName.substring(fileOriName.lastIndexOf("."), fileOriName.length());
+        String fileExtension = fileOriName.substring(file.getOriginalFilename().lastIndexOf("."), fileOriName.length());
         String uploadDir = "/Users/wondo/Desktop/JavaProject1/BookRental/src/main/webapp/resources/upload";
 
         UUID uuid = UUID.randomUUID();
-        String uniqName = uuid.toString().replace("-", "");
-        File saveFile = new File(uploadDir +"||" + uniqName + fileExtension);
+        String uniqueName = uuid.toString().replaceAll("-", "");
 
-        if(!saveFile.exists()) {
+        File saveFile = new File(uploadDir + "/" + uniqueName + fileExtension);
+
+        if (!saveFile.exists()) {
             saveFile.mkdirs();
         }
 
@@ -32,9 +33,9 @@ public class UploadFileService {
             e.printStackTrace();
         }
 
-        if(result) {
+        if (result) {
             System.out.println("File upload SUCCESS!!");
-            return uniqName+fileExtension;
+            return uniqueName + fileExtension;
         } else {
             System.out.println("File upload FAIL!!");
             return null;
